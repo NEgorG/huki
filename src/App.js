@@ -1,21 +1,15 @@
 import{useState}from 'react';
 import './App.css';
-
 const handleSubmit = (e) => {
   e.preventDefault();
-
   if (inputValue.trim() === '') return;
-
   const newTodo = {
     id: Date.now(),      
     text: inputValue.trim(),
     completed: false
   };
-
   setTodos([...todos, newTodo]);
-
   setInputValue('');
-
   const toggleTodo = (id) => {
   setTodos(
     todos.map((todo) =>
@@ -25,7 +19,6 @@ const handleSubmit = (e) => {
     )
   );
 };
-
 <ul>
   {todos.map((todo) => (
     <li
@@ -34,30 +27,25 @@ const handleSubmit = (e) => {
         textDecoration: todo.completed ? 'line-through' : 'none',
         cursor: 'pointer'
       }}
-      onClick={() => toggleTodo(todo.id)}
-    >
+      onClick={() => toggleTodo(todo.id)}>
       {todo.text}
     </li>
   ))}
 </ul>
-
   return (
   <div className="App">
     <h1>TodoList</h1>
-
     <form onSubmit={handleSubmit}>
       <input
         type="text"
         value={inputValue}
         onChange={(e) => setInputValue(e.target.value)}
-        placeholder="Добавить задачу..."
-      />
+        placeholder="Добавить задачу..."/>
       <button type="submit">Добавить</button>
     </form>
 
   </div>
 );
-
     <ul>
       {todos.map((todo) => (
         <li key={todo.id}>
@@ -65,20 +53,14 @@ const handleSubmit = (e) => {
         </li>
       ))}
     </ul>
-
 const deleteTodo = (id) => { setTodos(todos.filter((todo) => todo.id !== id)); };
-
 <li
   key={todo.id}
   style={{
-    textDecoration: todo.completed ? 'line-through' : 'none'
-  }}
->
+    textDecoration: todo.completed ? 'line-through' : 'none'}}>
   <span onClick={() => toggleTodo(todo.id)} style={{ cursor: 'pointer' }}>
     {todo.text}
   </span>
   <button onClick={() => deleteTodo(todo.id)}>Удалить</button>
 </li>
-
-
 };
