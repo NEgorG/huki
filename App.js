@@ -13,6 +13,17 @@ const handleSubmit = (e) => {
 
   setInputValue('');
 
+  const toggleTodo = (id) => {
+  setTodos(
+    todos.map((todo) =>
+      todo.id === id
+        ? { ...todo, completed: !todo.completed } 
+        : todo                                   
+    )
+  );
+};
+
+
   return (
   <div className="App">
     <h1>TodoList</h1>
