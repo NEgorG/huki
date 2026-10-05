@@ -4,13 +4,43 @@
 
     function App()
     {
-        return(
+        const [todos, setTodos] = useState([]);
+        const [inputValue, setInputValue] = useState('');
+
+        return (
             <div className="App">
             <h1>TodoList</h1>
+            <p>Задач: {todos.length}</p>
+            <p>Ввод: {inputValue}</p>
             </div>
         );
     }
     export default App;
+
+    const handleSubmit = (e) => {
+    e.preventDefault(); 
+    console.log('Форма отправлена, текст:', inputValue);
+  };
+
+  return (
+    <div className="App">
+      <h1>TodoList</h1>
+
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+          placeholder="Добавить задачу..."
+        />
+        <button type="submit">Добавить</button>
+      </form>
+
+      <p>Задач: {todos.length}</p>
+    </div>
+  );
+export default App;
+
 
 </div>
 
