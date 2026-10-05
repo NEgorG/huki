@@ -23,6 +23,20 @@ const handleSubmit = (e) => {
   );
 };
 
+<ul>
+  {todos.map((todo) => (
+    <li
+      key={todo.id}
+      style={{
+        textDecoration: todo.completed ? 'line-through' : 'none',
+        cursor: 'pointer'
+      }}
+      onClick={() => toggleTodo(todo.id)}
+    >
+      {todo.text}
+    </li>
+  ))}
+</ul>
 
   return (
   <div className="App">
