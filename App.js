@@ -52,6 +52,9 @@ const handleSubmit = (e) => {
       <button type="submit">Добавить</button>
     </form>
 
+  </div>
+);
+
     <ul>
       {todos.map((todo) => (
         <li key={todo.id}>
@@ -59,7 +62,20 @@ const handleSubmit = (e) => {
         </li>
       ))}
     </ul>
-  </div>
-);
+
+const deleteTodo = (id) => { setTodos(todos.filter((todo) => todo.id !== id)); };
+
+<li
+  key={todo.id}
+  style={{
+    textDecoration: todo.completed ? 'line-through' : 'none'
+  }}
+>
+  <span onClick={() => toggleTodo(todo.id)} style={{ cursor: 'pointer' }}>
+    {todo.text}
+  </span>
+  <button onClick={() => deleteTodo(todo.id)}>Удалить</button>
+</li>
+
 
 };
