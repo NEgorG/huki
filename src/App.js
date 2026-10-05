@@ -15,8 +15,7 @@ const handleSubmit = (e) => {
     todos.map((todo) =>
       todo.id === id
         ? { ...todo, completed: !todo.completed } 
-        : todo                                   
-    )
+        : todo                                  )
   );
 };
 <ul>
@@ -43,7 +42,6 @@ const handleSubmit = (e) => {
         placeholder="Добавить задачу..."/>
       <button type="submit">Добавить</button>
     </form>
-
   </div>
 );
     <ul>
